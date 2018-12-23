@@ -1,0 +1,23 @@
+.contact-list-item {
+
+  td {
+
+    a {
+      padding: 0;
+      display: block;
+      color: $dark-grey;
+    }
+  }
+
+  .btn-delete-contact {
+    padding: 3px;
+    line-height: 0;
+
+    svg {
+      height: $font-m-size;
+      path {
+        fill: $white;
+      }
+    }
+  }
+}

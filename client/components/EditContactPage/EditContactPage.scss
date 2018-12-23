@@ -1,0 +1,13 @@
+.page-edit-contact {
+  margin-top: $gap-l-size;
+
+  .page-edit-contact__header {
+    text-align: center;
+  }
+
+  .delete-contact-btn {
+    margin-top: $gap-m-size;
+    height: 2.5rem;
+    cursor: pointer;
+  }
+}

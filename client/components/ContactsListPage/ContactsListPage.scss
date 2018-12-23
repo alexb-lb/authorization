@@ -1,0 +1,13 @@
+.page-contacts-list {
+  .table {
+    cursor: pointer;
+    table-layout: fixed;
+    word-wrap: break-word;
+  }
+
+  .list-item__message {
+    text-align: center;
+    margin-top: 2rem;
+  }
+}
+

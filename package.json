@@ -1,0 +1,22 @@
+{
+  "name": "authorization",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alex Bobrenko <oknerbob@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
+    "dev-server": "webpack-dev-server",
+    "test-server": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha ./server/tests/*.test.js",
+    "test-client": "jest ./client/tests",
+    "start": "node ./server/server.js"
+  },
+  "dependencies": {
+    "hapi": "^17.8.1",
+    "inert": "^5.1.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.28.2"
+  }
+}

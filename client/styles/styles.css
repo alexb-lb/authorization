@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:400,700");
+/** COLORS **/
+/** FORM **/
+/** RADIUS **/
+/** FONT SIZES **/
+/** SPACINGS **/
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: #f5f8f9;
+}
+
+body {
+  color: #333;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+a {
+  color: #286ebb;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.is-active {
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.6rem;
+}
+
+#app {
+  background: #f7f7f7;
+}
+#app:hover {
+  background: red;
+}
+
+/*# sourceMappingURL=styles.css.map */

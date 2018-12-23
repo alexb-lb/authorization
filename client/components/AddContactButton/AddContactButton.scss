@@ -1,0 +1,18 @@
+
+.btn-add-contact {
+  padding: 0;
+  line-height: 0;
+  height: 100%;
+  width: 100%;
+
+  a {
+    display: block;
+
+    svg {
+      height: 2.28rem;
+      path {
+        fill: $white;
+      }
+    }
+  }
+}

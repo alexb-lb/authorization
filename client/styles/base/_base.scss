@@ -1,0 +1,15 @@
+body {
+  min-width: 600px;
+  color: $dark-grey;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: $font-m-size;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover{
+    text-decoration: none;
+  }
+}

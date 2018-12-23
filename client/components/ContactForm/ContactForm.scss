@@ -1,0 +1,13 @@
+.contact-form {
+  margin-top: $gap-l-size;
+
+  input, select, textarea {
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .save-contact-btn {
+    height: 2.5rem;
+    cursor: pointer;
+  }
+}
