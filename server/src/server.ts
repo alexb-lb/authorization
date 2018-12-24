@@ -1,23 +1,25 @@
-/** Setup environment */
-require('../config/config.js');
-
 /** Built-in modules */
-const path = require('path');
+import * as process from 'process'
+// import path from 'path';
 
 /** Third-party modules */
-const Hapi = require('hapi');
+import * as dotenv from 'dotenv';
+import * as Hapi from 'hapi';
 
 /** Plugins */
-const initialPlugin = require('./plugins/initial/initial');
+import initialPlugin from './plugins/initial/initial';
 
 /** Project modules */
-const Logger = require('./modules/Logger');
+import Logger from './modules/Logger';
+
+/** Configure environment */
+dotenv.config({path: '.env.development'});
 
 /** Server config defaulting to NODE_ENV or "development" */
 const server = Hapi.server({
   port: process.env.HTTP_PORT,
   host: process.env.HOST,
-  routes: {files: { relativeTo: path.join(__dirname, '..', 'client','public') }}
+  // routes: {files: { relativeTo: path.join(__dirname, '..', 'client','public') }}
 });
 
 /** Server init */
@@ -35,13 +37,14 @@ const init = async () => {
   server.route({method: 'GET', path: '/{route*}', handler: (request, h) => 'hello world'});
 
   await server.start();
-  Logger.createLog(`Server running at: ${server.info.uri}`);
+  // Logger.createLog(`Server running at: ${server.info.uri}`);
 };
 init();
 
 /** Error handlers */
 process.on('unhandledRejection', err => {
-  Logger.createLog(err);
+  console.log(err);
+  // Logger.createLog(err);
   process.exit(1);
 });
 
