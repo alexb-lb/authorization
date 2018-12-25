@@ -11,7 +11,7 @@
     "dev-server": "webpack-dev-server",
     "test-server": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha ./server/tests/*.test.js",
     "test-client": "jest ./client/tests",
-    "start": "node ./server/server.js"
+    "start": "node ./server/dist/server.js"
   },
   "dependencies": {
     "@types/dotenv": "^6.1.0",

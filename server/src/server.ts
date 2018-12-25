@@ -1,6 +1,6 @@
 /** Built-in modules */
 import * as process from 'process'
-// import path from 'path';
+import * as path from 'path';
 
 /** Third-party modules */
 import * as dotenv from 'dotenv';
@@ -19,7 +19,7 @@ dotenv.config({path: '.env.development'});
 const server = Hapi.server({
   port: process.env.HTTP_PORT,
   host: process.env.HOST,
-  // routes: {files: { relativeTo: path.join(__dirname, '..', 'client','public') }}
+  routes: {files: { relativeTo: path.join(__dirname, '..', 'client','public') }}
 });
 
 /** Server init */
@@ -37,14 +37,13 @@ const init = async () => {
   server.route({method: 'GET', path: '/{route*}', handler: (request, h) => 'hello world'});
 
   await server.start();
-  // Logger.createLog(`Server running at: ${server.info.uri}`);
+  Logger.createLog(`Server running at: ${server.info.uri}`);
 };
 init();
 
 /** Error handlers */
 process.on('unhandledRejection', err => {
-  console.log(err);
-  // Logger.createLog(err);
+  Logger.createLog(err);
   process.exit(1);
 });
 

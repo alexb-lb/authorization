@@ -1,12 +1,13 @@
 import * as serve from 'inert';
 
-const initialPlugin = <any>{};
-initialPlugin.name = 'initialPlugin';
-initialPlugin.version = '1.0.0';
-initialPlugin.register = async function (server, options) {
-    await Promise.all([
-        server.register(serve),
-    ]);
+const initialPlugin = <any>{
+    name: 'initialPlugin',
+    version: '1.0.0',
+    register: async function (server: any, options:object): Promise<object>{
+        return await Promise.all<object>([
+            server.register(serve),
+        ]);
+    },
 };
 
 export default initialPlugin;
