@@ -1,5 +1,10 @@
-const Logger = <any>{
-    createLog:<object> function (message: any, ...args: any): void {
+interface ILogger {
+    createLog(message: any, ...args: any[]): void;
+}
+
+
+const Logger: ILogger = {
+    createLog: function (message: any, ...args: any[]): void {
         const time = new Date().toUTCString();
 
         let output = time + ', ' + message;

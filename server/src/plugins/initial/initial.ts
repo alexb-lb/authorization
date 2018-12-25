@@ -1,6 +1,6 @@
 import * as serve from 'inert';
 
-const initialPlugin = <any>{
+const initialPlugin: object = {
     name: 'initialPlugin',
     version: '1.0.0',
     register: async function (server: any, options:object): Promise<object>{
