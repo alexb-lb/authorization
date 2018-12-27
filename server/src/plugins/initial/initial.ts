@@ -1,10 +1,11 @@
 import * as serve from 'inert';
+import IPlugin  from '../IPlugin';
 
-const initialPlugin = <any>{
+const initialPlugin: IPlugin = {
     name: 'initialPlugin',
     version: '1.0.0',
-    register: async function (server: any, options:object): Promise<object>{
-        return await Promise.all<object>([
+    register: async function (server, options){
+        return await Promise.all([
             server.register(serve),
         ]);
     },
