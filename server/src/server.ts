@@ -8,12 +8,19 @@ import * as Hapi from 'hapi';
 
 /** Plugins */
 import initialPlugin from './plugins/initial/initial';
+import passportPlugin from './plugins/passport';
+import contactsApiPlugin from './plugins/passport';
 
 /** Project modules */
 import Logger from './modules/Logger';
 
 /** Configure environment */
 dotenv.config({ path: '.env.development' });
+
+// connect to the database and load models
+import DB from './modules/DB';
+console.log(process.env.DB_URI);
+DB.connect(process.env.DB_URI);
 
 /** Server config defaulting to NODE_ENV or "development" */
 const server = Hapi.server({
@@ -32,6 +39,9 @@ const init = async () => {
   server.route({ method: 'GET', path: '/images/{file*}', handler: { directory: { path: './images', listing: true } } });
   server.route({ method: 'GET', path: '/dist/{file*}', handler: { directory: { path: './dist', listing: true } } });
 
+  // Passport init
+  await server.register(passportPlugin, {routes: {prefix: '/auth'}});
+
   // use React router instead of server routing for all of the paths
   // server.route({method: 'GET', path: '/{route*}', handler: (request, h) => h.file('./dist/app.html')});
   server.route({ method: 'GET', path: '/{route*}', handler: (request, h) => 'hello world' });
@@ -46,4 +56,3 @@ process.on('unhandledRejection', err => {
   Logger.createLog(err);
   process.exit(1);
 });
-
